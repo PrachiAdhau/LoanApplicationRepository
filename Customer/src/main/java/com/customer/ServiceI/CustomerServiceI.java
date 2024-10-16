@@ -1,6 +1,9 @@
 package com.customer.ServiceI;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
+
 
 import com.customer.model.Customer;
 
@@ -11,6 +14,9 @@ public interface CustomerServiceI {
 			MultipartFile salarySlips);
 
 
+	public List<Customer> getAllData();
+
+
 
 	public void deleteSingle(int customerID);
 
@@ -18,6 +24,7 @@ public interface CustomerServiceI {
 
 
 	public void deleteAllCustomer();
+
 
 	
 

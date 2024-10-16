@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.customer.Repository.CustomerRepository;
 import com.customer.ServiceI.CustomerServiceI;
+
 import com.customer.model.AllPersonalDocuments;
 import com.customer.model.Customer;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -97,4 +98,11 @@ public class CustomerServiceImpl implements CustomerServiceI {
 
 	}
 
+	@Override
+	public java.util.List<Customer> getAllData() {
+		
+		return cr.findAll();
+	}
+
+	
 }
