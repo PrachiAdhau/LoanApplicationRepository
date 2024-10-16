@@ -138,4 +138,10 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		
 	}
 
+	@Override
+	public Customer getSingleMethod(int customerID) {
+		Customer c=cr.findById(customerID).get();
+		return c;
+	}
+
 }
