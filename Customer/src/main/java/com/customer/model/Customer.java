@@ -1,6 +1,7 @@
 package com.customer.model;
 
-import com.app.model.Cibil;
+
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -35,15 +36,13 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerAddress customerAddress;
 	@OneToOne(cascade = CascadeType.ALL)
-	private Cibil cibilscore;
-	@OneToOne(cascade = CascadeType.ALL)
 	private AccountDetails accountdetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private GuarantorDetails  gurantordetails;
 	@OneToOne(cascade = CascadeType.ALL)
 	private LoanDisbursement loandisbursement;
 	@OneToMany(cascade = CascadeType.ALL)
-	private Ledger ledger;
+	private List<Ledger> ledger;
 	@OneToOne(cascade = CascadeType.ALL)
 	private SanctionLetter sanctionletter;
 	@OneToOne(cascade = CascadeType.ALL)
