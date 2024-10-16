@@ -97,10 +97,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		return c;
 
 	}
-	public java.util.List<Customer> getAllData(){
-		return cr.findAll();
-	}
-
+	
 		
 
 		

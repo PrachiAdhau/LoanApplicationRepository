@@ -2,6 +2,8 @@ package com.customer.ServiceI;
 
 
 
+
+
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -24,6 +26,11 @@ public interface CustomerServiceI {
 
 	public void deleteAllCustomer();
 
+
+
+
+
+	
 
 
 
