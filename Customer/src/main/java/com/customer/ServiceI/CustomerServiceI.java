@@ -13,7 +13,18 @@ public interface CustomerServiceI {
 			MultipartFile addharCard, MultipartFile photo, MultipartFile signature, MultipartFile bankCheque,
 			MultipartFile salarySlips);
 
+
 	public List<Customer> getAllData();
+
+
+
+	public void deleteSingle(int customerID);
+
+	public Customer getSingleMethod(int customerID);
+
+
+	public void deleteAllCustomer();
+
 
 	
 

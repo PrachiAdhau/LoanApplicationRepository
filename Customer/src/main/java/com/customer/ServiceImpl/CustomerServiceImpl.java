@@ -67,17 +67,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 				all.setSalarySlips(salarySlips.getBytes());
 				cu.setAllpersonalDocument(all);
 				
-				
-//				cu.getAllpersonalDocument().setAddressProof(addressProof.getBytes());
-//				
-//				cu.getAllpersonalDocument().setPanCard(pancard.getBytes());
-//				cu.getAllpersonalDocument().setIncomeTax(incomeTax.getBytes());
-//				cu.getAllpersonalDocument().setAddharCard(addharCard.getBytes());
-//				cu.getAllpersonalDocument().setPhoto(photo.getBytes());
-//				cu.getAllpersonalDocument().setSignature(signature.getBytes());
-//				cu.getAllpersonalDocument().setBankCheque(bankCheque.getBytes());
-//				cu.getAllpersonalDocument().setSalarySlips(salarySlips.getBytes());
-
+							
 			}
 
 			catch (IOException e) {
@@ -85,58 +75,27 @@ public class CustomerServiceImpl implements CustomerServiceI {
 			}
 
 	
-//		  // dependent info
-//		  
-//		  cu.getFamilydependentInfo().getNoOfFamilyMember();
-//		  cu.getFamilydependentInfo().getNoOfChild();
-//		  cu.getFamilydependentInfo().getMaritalStatus();
-//		  cu.getFamilydependentInfo().getDependentMember();
-//		  cu.getFamilydependentInfo().getFamilyIncome();
-//		 
-//		  // permanent address
-//		 
-//		  cu.getCustomerAddress().getPermanentAddress().getAreaname();
-//		 cu.getCustomerAddress().getPermanentAddress().getCityname();
-//		  cu.getCustomerAddress().getPermanentAddress().getDistrict();
-//		  cu.getCustomerAddress().getPermanentAddress().getState();
-//		  cu.getCustomerAddress().getPermanentAddress().getPincode();
-//		  cu.getCustomerAddress().getPermanentAddress().getHouseNumber();
-//		  cu.getCustomerAddress().getPermanentAddress().getStreetName();
-//		 
-//		 // local address
-//		 
-//		  cu.getCustomerAddress().getLocalAddress().getAreaname();
-//		  cu.getCustomerAddress().getLocalAddress().getCityname();
-//		  cu.getCustomerAddress().getLocalAddress().getDistrict();
-//		 cu.getCustomerAddress().getLocalAddress().getState();
-//		  cu.getCustomerAddress().getLocalAddress().getPincode();
-//		  cu.getCustomerAddress().getLocalAddress().getHouseNumber();
-//		 cu.getCustomerAddress().getLocalAddress().getStreetName();
-//		 
-//		 // Account details
-//		 
-//		 cu.getAccountdetails().getAccounType();
-//		 cu.getAccountdetails().getAccountBalance();
-//		  cu.getAccountdetails().getAccountHolderName();
-//		  cu.getAccountdetails().getAccountStatus();
-//		  cu.getAccountdetails().getAccountNumber();
-//		 
-//		 // guarantor details
-//		  
-//		  cu.getGurantordetails().getGuarantorName();
-//		  cu.getGurantordetails().getGuarantorDateOfBirth();
-//		  cu.getGurantordetails().getGuarantorRelationshipwithCustomer();
-//		  cu.getGurantordetails().getGuarantorMobileNumber();
-//		  cu.getGurantordetails().getGuarantorAdharCardNo();
-//		  cu.getGurantordetails().getGuarantorMortgageDetails();
-//		  cu.getGurantordetails().getGuarantorJobDetails();
-//		  cu.getGurantordetails().getGuarantorLoaclAddress();
-//		 cu.getGurantordetails().getGuarantorPermanentAddress();
-//		 
-//		
 		return cr.save(cu);
-//return null;
+
+	}
+
+	@Override
+	public void deleteAllCustomer() {
 		
+		cr.deleteAll();
+		
+	}
+
+	@Override
+
+	public void deleteSingle(int customerID) {
+		cr.deleteById(customerID);
+		
+	}
+	public Customer getSingleMethod(int customerID) {
+		Customer c=cr.findById(customerID).get();
+		return c;
+
 	}
 
 	@Override
