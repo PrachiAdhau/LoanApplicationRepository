@@ -91,7 +91,7 @@ public class CustomerController {
 	}
 	
 	
-	
+//update method added by priyanka	
 	@PutMapping("/edit/{customerID}")
 	public ResponseEntity<String> updateData(@RequestBody Customer c, @PathVariable("customerID") int customerID)
 
