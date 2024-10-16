@@ -1,8 +1,9 @@
 package com.customer.ServiceI;
 
-import java.util.List;
+
 
 import org.springframework.web.multipart.MultipartFile;
+
 
 import com.customer.model.Customer;
 
@@ -12,6 +13,8 @@ public interface CustomerServiceI {
 			MultipartFile addharCard, MultipartFile photo, MultipartFile signature, MultipartFile bankCheque,
 			MultipartFile salarySlips);
 
+
+	
 
 
 	public void deleteSingle(int customerID);
@@ -23,11 +26,12 @@ public interface CustomerServiceI {
 
 
 
-	public void editcustomer(Customer c, int customerID);
+
+	
 
 
 
-	public List<Customer> getAllData();
+
 
 
 
@@ -37,7 +41,7 @@ public interface CustomerServiceI {
 
 	
 
-	
+
 
 	
 

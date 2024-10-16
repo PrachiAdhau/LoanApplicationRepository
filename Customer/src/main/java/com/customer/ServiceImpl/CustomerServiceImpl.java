@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.customer.Repository.CustomerRepository;
 import com.customer.ServiceI.CustomerServiceI;
+
 import com.customer.model.AllPersonalDocuments;
 import com.customer.model.Customer;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -100,38 +101,10 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		return cr.findAll();
 	}
 
-	@Override
-	public void editcustomer(Customer c, int customerID) {
-		Customer cu = cr.findById(customerID).get();
-
-		if (null != cu) {
-			cu.setAccountdetails(c.getAccountdetails());
-			cu.setAllpersonalDocument(c.getAllpersonalDocument());
-			cu.setCustomerAdditionalMobileNumber(c.getCustomerAdditionalMobileNumber());
-			cu.setCustomerAddress(c.getCustomerAddress());
-			cu.setCustomerAge(c.getCustomerAge());
-			cu.setCustomerAmountPaidForHome(c.getCustomerAmountPaidForHome());
-			cu.setCustomerDateOfBirth(c.getCustomerDateOfBirth());
-			cu.setCustomerEmail(c.getCustomerEmail());
-			cu.setCustomerGender(c.getCustomerGender());
-			cu.setCustomerID(c.getCustomerID());
-			cu.setCustomerMobileNumber(c.getCustomerMobileNumber());
-			cu.setCustomerName(c.getCustomerName());
-			cu.setCustomerTotalLoanRequired(c.getCustomerTotalLoanRequired());
-			cu.setCustomerverification(c.getCustomerverification());
-			cu.setFamilydependentInfo(c.getFamilydependentInfo());
-			cu.setGurantordetails(c.getGurantordetails());
-			cu.setLedger(c.getLedger());
-			cu.setLoandisbursement(c.getLoandisbursement());
-			cu.setLoanStatus(c.getLoanStatus());
-			cu.setRequiredTenure(c.getRequiredTenure());
-			cu.setSanctionletter(c.getSanctionletter());
-			cr.save(cu);
-		} else {
-			System.out.println("Data is not present");
-		}
+		
 
 		
 	}
 
-}
+	
+
