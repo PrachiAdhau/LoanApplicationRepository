@@ -138,4 +138,10 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		
 	}
 
+	@Override
+	public void deleteSingle(int customerID) {
+		cr.deleteById(customerID);
+		
+	}
+
 }
