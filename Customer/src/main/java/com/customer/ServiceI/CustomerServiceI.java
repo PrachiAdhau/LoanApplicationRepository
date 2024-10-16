@@ -11,7 +11,11 @@ public interface CustomerServiceI {
 			MultipartFile salarySlips);
 
 
+
 	public void deleteSingle(int customerID);
+
+	public Customer getSingleMethod(int customerID);
+
 
 	public void deleteAllCustomer();
 

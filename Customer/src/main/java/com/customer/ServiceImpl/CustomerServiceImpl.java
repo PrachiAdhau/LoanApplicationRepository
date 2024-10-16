@@ -86,9 +86,15 @@ public class CustomerServiceImpl implements CustomerServiceI {
 	}
 
 	@Override
+
 	public void deleteSingle(int customerID) {
 		cr.deleteById(customerID);
 		
+	}
+	public Customer getSingleMethod(int customerID) {
+		Customer c=cr.findById(customerID).get();
+		return c;
+
 	}
 
 }
