@@ -4,6 +4,8 @@ package com.customer.ServiceI;
 
 
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -25,6 +27,18 @@ public interface CustomerServiceI {
 
 
 	public void deleteAllCustomer();
+
+
+
+
+
+	public List<Customer> getAllData();
+
+
+
+
+
+	public void editcustomer(Customer c, int customerID);
 
 
 

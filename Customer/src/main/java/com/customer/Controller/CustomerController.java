@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
@@ -90,8 +91,20 @@ public class CustomerController {
 		return new ResponseEntity<String>("delete Customer",HttpStatus.OK);
 
      }
-	
+	@GetMapping("/getAll")
+	public ResponseEntity<List<Customer>> getAllData()
+	{
+	List<Customer>list	= csi.getAllData();
+	return new  ResponseEntity<List<Customer>>(list,HttpStatus.OK);
+	}
+	//update method added by priyanka	
+		@PutMapping("/edit/{customerID}")
+		public ResponseEntity<String> updateData(@RequestBody Customer c, @PathVariable("customerID") int customerID)
 
+		{
+			csi.editcustomer(c, customerID);
+			return new ResponseEntity<String>("Data updated", HttpStatus.CREATED);
+		}
 
 	}
 
