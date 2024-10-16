@@ -10,6 +10,10 @@ public interface CustomerServiceI {
 			MultipartFile addharCard, MultipartFile photo, MultipartFile signature, MultipartFile bankCheque,
 			MultipartFile salarySlips);
 
+	public void deleteAllCustomer();
+
+	
+
 	
 
 }
