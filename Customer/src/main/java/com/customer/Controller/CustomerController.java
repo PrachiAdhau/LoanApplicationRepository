@@ -89,7 +89,7 @@ public class CustomerController {
 
 	}
 
-	@DeleteMapping("/delByAllCustomer")
+	@DeleteMapping("/delByAllCustomer") 
 	public ResponseEntity<String> delByAllCustomer(){
 		csi.deleteAllCustomer();
 		return new ResponseEntity<String>("delete Customer",HttpStatus.OK);
