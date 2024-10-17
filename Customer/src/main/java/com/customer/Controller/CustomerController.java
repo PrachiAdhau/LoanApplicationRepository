@@ -88,6 +88,7 @@ public class CustomerController {
 	{
 		csi.editcustomer(c, customerID);
 		return new ResponseEntity<String>("Data updated", HttpStatus.CREATED);
+		
 	}
 
 }
