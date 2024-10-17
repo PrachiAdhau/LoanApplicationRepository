@@ -44,7 +44,7 @@ public class Customer {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Ledger> ledger;
 	@OneToOne(cascade = CascadeType.ALL)
-	private SanctionLetter sanctionletter;
+	private SanctionLetter customersanctionletter;
 	@OneToOne(cascade = CascadeType.ALL)
 	private CustomerVerification customerverification;
 	

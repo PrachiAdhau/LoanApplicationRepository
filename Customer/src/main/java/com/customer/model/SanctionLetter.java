@@ -2,10 +2,12 @@ package com.customer.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.Data;
 @Entity
 @Data
@@ -26,6 +28,8 @@ public class SanctionLetter {
 	private String remarks;
 	private String termsCondition;
 	private String status;
-	
+	@Lob
+	@Column(length = 99999999)
+	private byte[] sanctionLetter;
 
 }

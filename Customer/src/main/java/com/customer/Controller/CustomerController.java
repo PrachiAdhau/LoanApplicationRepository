@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.customer.ServiceI.CustomerServiceI;
 import com.customer.model.Customer;
+import com.customer.model.CustomerVerification;
 
 @RestController
 @RequestMapping("/customer")
@@ -89,5 +90,13 @@ public class CustomerController {
 		csi.editcustomer(c, customerID);
 		return new ResponseEntity<String>("Data updated", HttpStatus.CREATED);
 	}
-
+	
+	@PutMapping("/getCustomerVerification/{id}")
+	public ResponseEntity<CustomerVerification> customerVerificationDetails(@PathVariable int id,@RequestBody CustomerVerification cv )
+	{
+		CustomerVerification cc=csi.customerVerificationDetails(id,cv);
+		return new ResponseEntity<CustomerVerification>(cc,HttpStatus.OK);
+	}
+     
+    
 }
