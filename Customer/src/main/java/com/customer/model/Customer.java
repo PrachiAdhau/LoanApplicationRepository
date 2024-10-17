@@ -24,8 +24,8 @@ public class Customer {
 	private int requiredTenure;
 	private String customerGender;
 	private String customerEmail;
-	private Double customerMobileNumber;
-	private Double customerAdditionalMobileNumber;
+	private long customerMobileNumber;
+	private long customerAdditionalMobileNumber;
 	private Double customerAmountPaidForHome;
 	private Double customerTotalLoanRequired;
 	private String loanStatus;

@@ -8,7 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.customer.Repository.CustomerRepository;
 import com.customer.ServiceI.CustomerServiceI;
-
+import com.customer.exception.InvalidMobileNoException;
+import com.customer.exception.InvalidPinCodeException;
+import com.customer.exception.invalidEmailException;
 import com.customer.model.AllPersonalDocuments;
 import com.customer.model.Customer;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,8 +27,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 	public Customer saveData(String jsondata, MultipartFile addressProof, MultipartFile pancard,
 			MultipartFile incomeTax, MultipartFile addharCard, MultipartFile photo, MultipartFile signature,
 			MultipartFile bankCheque, MultipartFile salarySlips) {
-		
-		
+
 //		System.out.println(jsondata);
 //		
 //		System.out.println(addressProof);
@@ -45,6 +46,47 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		try {
 			cu = obj.readValue(jsondata, Customer.class);
 			System.out.println(cu);
+
+			// Mobilbe no exception
+			
+			
+			String mobileNo = String.valueOf(cu.getCustomerMobileNumber());
+			if (mobileNo.length() == 10) {
+				System.out.println("valid no" + mobileNo);
+
+			} else {
+				throw new InvalidMobileNoException("invalidMobileNoException  " + mobileNo);
+			}
+
+			// gmail Exception
+			String email = cu.getCustomerEmail();
+			if (cu.getCustomerEmail().endsWith("@gmail.com")) {
+
+				System.out.println("gmail is correct");
+			} else {
+				throw new invalidEmailException("invalidEmailException " + email);
+			}
+
+			// pincodeException for permanent address
+
+			String ppincode = String.valueOf(cu.getCustomerAddress().getPermanentAddress().getPincode());
+			if (ppincode.length() == 6) {
+				System.out.println("valid pincode" + ppincode);
+			} else {
+				throw new InvalidPinCodeException("InvalidPinCodeException");
+			}
+
+			// pincodeException for local address
+
+			String lpincode = String.valueOf(cu.getCustomerAddress().getLocalAddress().getPincode());
+			if (lpincode.length() == 6) {
+				System.out.println("valid pincode" + lpincode);
+			} else {
+				throw new InvalidPinCodeException("InvalidPinCodeException");
+			}
+
+			
+			
 		} catch (JsonMappingException e) {
 
 			e.printStackTrace();
@@ -56,53 +98,53 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		if (cu != null)
 			try {
 				System.out.println("In if of service");
-				
+
 				AllPersonalDocuments all = new AllPersonalDocuments();
 				all.setAddressProof(addressProof.getBytes());
-			    all.setIncomeTax(incomeTax.getBytes());
+				all.setIncomeTax(incomeTax.getBytes());
 				all.setAddharCard(addharCard.getBytes());
 				all.setPhoto(photo.getBytes());
 				all.setSignature(signature.getBytes());
 				all.setBankCheque(bankCheque.getBytes());
 				all.setSalarySlips(salarySlips.getBytes());
 				cu.setAllpersonalDocument(all);
-				
-							
+
 			}
 
 			catch (IOException e) {
 				e.printStackTrace();
 			}
 
-	
 		return cr.save(cu);
 
 	}
 
 	@Override
 	public void deleteAllCustomer() {
-		
+
 		cr.deleteAll();
-		
+
 	}
 
 	@Override
 
 	public void deleteSingle(int customerID) {
 		cr.deleteById(customerID);
-		
+
 	}
+
 	public Customer getSingleMethod(int customerID) {
-		Customer c=cr.findById(customerID).get();
+		Customer c = cr.findById(customerID).get();
 		return c;
 
 	}
+
 	@Override
 	public java.util.List<Customer> getAllData() {
-		
+
 		return cr.findAll();
 	}
-		
+
 	@Override
 	public void editcustomer(Customer c, int customerID) {
 		Customer cu = cr.findById(customerID).get();
@@ -134,8 +176,6 @@ public class CustomerServiceImpl implements CustomerServiceI {
 			System.out.println("Data is not present");
 		}
 
-		
 	}
 
 }
-

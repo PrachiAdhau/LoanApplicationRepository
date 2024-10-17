@@ -5,8 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.iptech.dreamhousingloan.exception.InvalidMobileNoException;
-import com.iptech.dreamhousingloan.exception.invalidEmailException;
+import com.customer.exception.InvalidMobileNoException;
+import com.customer.exception.InvalidPinCodeException;
+import com.customer.exception.invalidEmailException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandlerController {
@@ -20,6 +21,12 @@ public class GlobalExceptionHandlerController {
 
 	@ExceptionHandler(InvalidMobileNoException.class)
 	public ResponseEntity<String>handelinvalidMobileNo(InvalidMobileNoException inm)
+	{
+		String msg=inm.getMessage();
+		return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler(InvalidPinCodeException.class)
+	public ResponseEntity<String>handleInvalidPinCodeException(InvalidPinCodeException inm)
 	{
 		String msg=inm.getMessage();
 		return new ResponseEntity<String>(msg,HttpStatus.BAD_REQUEST);
