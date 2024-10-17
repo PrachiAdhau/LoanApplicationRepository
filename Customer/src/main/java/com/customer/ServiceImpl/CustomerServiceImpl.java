@@ -1,6 +1,8 @@
 package com.customer.ServiceImpl;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import com.customer.exception.InvalidPinCodeException;
 import com.customer.exception.invalidEmailException;
 import com.customer.model.AllPersonalDocuments;
 import com.customer.model.Customer;
+import com.customer.model.CustomerVerification;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -176,6 +179,24 @@ public class CustomerServiceImpl implements CustomerServiceI {
 			System.out.println("Data is not present");
 		}
 
+	}
+
+	@Override
+	public CustomerVerification customerVerificationDetails(int id, CustomerVerification cv) {
+		
+       Customer cc= cr.findById(id).get();
+		
+		int cid=cc.getCustomerID();
+		cv.setVerificationID(id);
+		Date currentDate=new Date();
+		cv.setVerificationDate(currentDate);
+		cv.setStatus("all basic data submitted");
+		cv.setRemarks("Good");
+		cc.setCustomerverification(cv);
+		cr.save(cc);
+		return cv;
+		
+	
 	}
 
 }

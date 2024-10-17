@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import com.customer.model.Customer;
+import com.customer.model.CustomerVerification;
 
 public interface CustomerServiceI {
 
@@ -38,7 +39,13 @@ public interface CustomerServiceI {
 
 
 
-	public void editcustomer(Customer c, int customerID);
+	public void editcustomer(Customer c, int id);
+
+
+
+
+
+	public CustomerVerification customerVerificationDetails(int customerID, CustomerVerification cv);
 
 
 
