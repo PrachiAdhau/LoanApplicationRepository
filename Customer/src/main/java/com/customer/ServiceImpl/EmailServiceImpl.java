@@ -33,7 +33,7 @@ public class EmailServiceImpl implements EmailService{
 			try {
 				MimeMessageHelper mimemessageHelper = new MimeMessageHelper(mimemessage, true);
 				mimemessageHelper.setFrom(fromEmail);
-				mimemessageHelper.setTo("prachiadhau1997@gmail.com");
+				mimemessageHelper.setTo(customerDetails.getCustomerEmail());
 				mimemessageHelper.setSubject("AJT Finance Ltd. Sanction Letter");
 				String text = "Dear " + customerDetails.getCustomerName()
 						+ ",\n" + "\n"
