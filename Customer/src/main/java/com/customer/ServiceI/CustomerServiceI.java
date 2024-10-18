@@ -5,6 +5,7 @@ package com.customer.ServiceI;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -46,6 +47,12 @@ public interface CustomerServiceI {
 
 
 	public CustomerVerification customerVerificationDetails(int customerID, CustomerVerification cv);
+
+
+
+
+
+	public Optional<Customer> findById(Integer customerId);
 
 
 

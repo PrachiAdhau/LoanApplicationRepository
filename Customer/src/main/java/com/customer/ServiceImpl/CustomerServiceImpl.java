@@ -173,7 +173,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 			cu.setLoandisbursement(c.getLoandisbursement());
 			cu.setLoanStatus(c.getLoanStatus());
 			cu.setRequiredTenure(c.getRequiredTenure());
-			cu.setSanctionletter(c.getSanctionletter());
+			cu.setCustomersanctionletter(c.getCustomersanctionletter());
 			cr.save(cu);
 		} else {
 			System.out.println("Data is not present");
@@ -198,5 +198,12 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		
 	
 	}
+	@Override
+	public Optional<Customer> findById(Integer enquid) 
+	{
+		Optional<Customer> findById= cr.findById(enquid);
+		return findById;
+	}
+
 
 }
