@@ -87,7 +87,7 @@ public class SanctionServiceImpl implements SanctionService{
 		Image img = null;
 		
 		try {
-			img = Image.getInstance("C:\\Users\\Hp\\Desktop\\download (6).jfif");
+			img = Image.getInstance("C:\\Users\\lenovo\\Desktop\\HomeLoan\\home.jpg");
 			img.scalePercent(50, 50);
 			img.setAlignment(Element.ALIGN_RIGHT);
 			document.add(img);
