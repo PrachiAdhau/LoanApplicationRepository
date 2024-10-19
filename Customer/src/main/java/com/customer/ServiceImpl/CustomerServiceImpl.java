@@ -51,8 +51,7 @@ public class CustomerServiceImpl implements CustomerServiceI {
 			System.out.println(cu);
 
 			// Mobilbe no exception
-			
-			
+
 			String mobileNo = String.valueOf(cu.getCustomerMobileNumber());
 			if (mobileNo.length() == 10) {
 				System.out.println("valid no" + mobileNo);
@@ -88,8 +87,6 @@ public class CustomerServiceImpl implements CustomerServiceI {
 				throw new InvalidPinCodeException("InvalidPinCodeException");
 			}
 
-			
-			
 		} catch (JsonMappingException e) {
 
 			e.printStackTrace();
@@ -153,27 +150,27 @@ public class CustomerServiceImpl implements CustomerServiceI {
 		Customer cu = cr.findById(customerID).get();
 
 		if (null != cu) {
-			cu.setAccountdetails(c.getAccountdetails());
-			cu.setAllpersonalDocument(c.getAllpersonalDocument());
-			cu.setCustomerAdditionalMobileNumber(c.getCustomerAdditionalMobileNumber());
-			cu.setCustomerAddress(c.getCustomerAddress());
-			cu.setCustomerAge(c.getCustomerAge());
-			cu.setCustomerAmountPaidForHome(c.getCustomerAmountPaidForHome());
-			cu.setCustomerDateOfBirth(c.getCustomerDateOfBirth());
-			cu.setCustomerEmail(c.getCustomerEmail());
-			cu.setCustomerGender(c.getCustomerGender());
-			cu.setCustomerID(c.getCustomerID());
-			cu.setCustomerMobileNumber(c.getCustomerMobileNumber());
 			cu.setCustomerName(c.getCustomerName());
-			cu.setCustomerTotalLoanRequired(c.getCustomerTotalLoanRequired());
-			cu.setCustomerverification(c.getCustomerverification());
-			cu.setFamilydependentInfo(c.getFamilydependentInfo());
-			cu.setGurantordetails(c.getGurantordetails());
-			cu.setLedger(c.getLedger());
-			cu.setLoandisbursement(c.getLoandisbursement());
-			cu.setLoanStatus(c.getLoanStatus());
+			cu.setCustomerDateOfBirth(c.getCustomerDateOfBirth());
+			cu.setCustomerAge(c.getCustomerAge());
 			cu.setRequiredTenure(c.getRequiredTenure());
+			cu.setCustomerGender(c.getCustomerGender());
+			cu.setCustomerEmail(c.getCustomerEmail());
+			cu.setCustomerMobileNumber(c.getCustomerMobileNumber());
+			cu.setCustomerAdditionalMobileNumber(c.getCustomerAdditionalMobileNumber());
+			cu.setCustomerAmountPaidForHome(c.getCustomerAmountPaidForHome());
+			cu.setCustomerTotalLoanRequired(c.getCustomerTotalLoanRequired());
+			cu.setLoanStatus(c.getLoanStatus());
+			cu.setAllpersonalDocument(c.getAllpersonalDocument());
+			cu.setFamilydependentInfo(c.getFamilydependentInfo());
+			cu.setCustomerAddress(c.getCustomerAddress());
+			cu.setAccountdetails(c.getAccountdetails());
+			cu.setGurantordetails(c.getGurantordetails());
+			cu.setLoandisbursement(c.getLoandisbursement());
+			cu.setLedger(c.getLedger());
 			cu.setCustomersanctionletter(c.getCustomersanctionletter());
+
+			cu.setCustomerverification(c.getCustomerverification());
 			cr.save(cu);
 		} else {
 			System.out.println("Data is not present");
@@ -183,27 +180,25 @@ public class CustomerServiceImpl implements CustomerServiceI {
 
 	@Override
 	public CustomerVerification customerVerificationDetails(int id, CustomerVerification cv) {
-		
-       Customer cc= cr.findById(id).get();
-		
-		int cid=cc.getCustomerID();
+
+		Customer cc = cr.findById(id).get();
+
+		int cid = cc.getCustomerID();
 		cv.setVerificationID(id);
-		Date currentDate=new Date();
+		Date currentDate = new Date();
 		cv.setVerificationDate(currentDate);
 		cv.setStatus("all basic data submitted");
 		cv.setRemarks("Good");
 		cc.setCustomerverification(cv);
 		cr.save(cc);
 		return cv;
-		
-	
-	}
-	@Override
-	public Optional<Customer> findById(Integer enquid) 
-	{
-		Optional<Customer> findById= cr.findById(enquid);
-		return findById;
+
 	}
 
+	@Override
+	public Optional<Customer> findById(Integer enquid) {
+		Optional<Customer> findById = cr.findById(enquid);
+		return findById;
+	}
 
 }
