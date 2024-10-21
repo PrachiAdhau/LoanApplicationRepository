@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.customer.model.Customer;
 import com.customer.model.CustomerVerification;
 
+
 public interface CustomerServiceI {
 
 	public Customer saveData(String jsondata, MultipartFile addressProof, MultipartFile pancard, MultipartFile incomeTax,
@@ -53,6 +54,10 @@ public interface CustomerServiceI {
 
 
 	public Optional<Customer> findById(Integer customerId);
+
+
+
+
 
 
 

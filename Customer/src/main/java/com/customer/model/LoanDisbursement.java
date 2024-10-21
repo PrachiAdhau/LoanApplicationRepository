@@ -17,7 +17,7 @@ public class LoanDisbursement {
 	private Double totalAmount;
 	private String bankName;
 	private Long accountNumber; 
-	private String IFSCCode;
+	private String ifsccode;
 	private String accountType;
 	private Double transferAmount;
 	private String paymentStatus;

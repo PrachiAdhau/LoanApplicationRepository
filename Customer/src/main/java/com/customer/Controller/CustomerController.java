@@ -24,6 +24,7 @@ import com.customer.ServiceI.CustomerServiceI;
 import com.customer.model.Customer;
 import com.customer.model.CustomerVerification;
 
+
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -99,5 +100,6 @@ public class CustomerController {
 		return new ResponseEntity<CustomerVerification>(cc,HttpStatus.OK);
 	}
      
+	
     
 }
